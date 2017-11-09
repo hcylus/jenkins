@@ -7,13 +7,13 @@ services:
   ports:
    - 8080:8080
   volumes:
-   - $HOME/jenkinsx:/var/jenkins_home
+   - $HOME/jenkins:/var/jenkins_home
 
  jenkinsci-slave:
   image: jenkinsci/ssh-slave
   env_file: env
   volumes:
-   - $HOME/jenkinsx/slave:/home/jenkins
+   - $HOME/jenkins/slave:/home/jenkins
   depends_on:
    - jenkinsci-master
   links:
