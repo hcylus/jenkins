@@ -1,0 +1,20 @@
+version: '3'
+services:
+ jenkinsci-master:
+  build: .
+  #expose:
+  # - 50000
+  ports:
+   - 8080:8080
+  volumes:
+   - $HOME/jenkinsx:/var/jenkins_home
+
+ jenkinsci-slave:
+  image: jenkinsci/ssh-slave
+  env_file: env
+  volumes:
+   - $HOME/jenkinsx/slave:/home/jenkins
+  depends_on:
+   - jenkinsci-master
+  links:
+   - jenkinsci-master

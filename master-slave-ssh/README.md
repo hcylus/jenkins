@@ -1,0 +1,2 @@
+通过ssh方式构建master-slave
+镜像基于官方jenkinsci
