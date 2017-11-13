@@ -13,7 +13,7 @@ services:
 
  jenkinsci-slave:
   image: jenkinsci/ssh-slave
-  #env_file: env
+  env_file: env
   volumes:
    - $HOME/jenkins/slave:/home/jenkins
    - $HOME/jenkins/ssh/id_rsa.pub:/home/jenkins/.ssh/authorized_keys
