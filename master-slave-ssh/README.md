@@ -18,3 +18,14 @@
 进入jenkins/master-slave-ssh目录执行
 
 `docker-compose up -d`
+
+
+docker cp masterslavessh_jenkinsci-master_1:/tmp/ssh/id_rsa.pub authorized_keys
+
+docker cp authorized_keys masterslavessh_jenkinsci-slave_1:/home/jenkins/.ssh/authorized_keys
+
+docker exec masterslavessh_jenkinsci-slave_1 chown jenkins.jenkins /home/jenkins/.ssh/authorized_keys
+
+docker exec masterslavessh_jenkinsci-slave_1 chmod 700 /home/jenkins/.ssh/authorized_keys
+
+docker inspect -f '{{.NetworkSettings.Networks.masterslavessh_default.IPAddress}}' masterslavessh_jenkinsci-slave_1
