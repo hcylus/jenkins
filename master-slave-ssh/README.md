@@ -40,3 +40,7 @@ docker inspect -f '{{.NetworkSettings.Networks.masterslavessh_default.IPAddress}
 获取master私钥
 
 docker exec masterslavessh_jenkinsci-master_1 cat /tmp/.ssh/id_rsa
+
+## 管理脚本
+
+Usage: dcmg.sh init|start|stop|restart|status|down
