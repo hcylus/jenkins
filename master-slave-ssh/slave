@@ -1,2 +1,3 @@
 FROM jenkinsci/ssh-slave
 ADD localtime /etc/localtime
+RUN echo Asia/Shanghai > /etc/timezone
