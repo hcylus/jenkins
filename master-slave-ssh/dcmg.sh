@@ -19,12 +19,12 @@ function initdc() {
 	docker inspect -f '{{.NetworkSettings.Networks.masterslavessh_default.IPAddress}}' masterslavessh_jenkinsci-slave_1
 
 	echo
-	echo "--- jenkins master key ---"
-	echo
+	#echo "--- jenkins master key ---"
+	#echo
 
-	docker exec masterslavessh_jenkinsci-master_1 cat /tmp/.ssh/id_rsa
+	#docker exec masterslavessh_jenkinsci-master_1 cat /tmp/.ssh/id_rsa
 
-	echo
+	#echo
 	echo "--- jenkins init password ---"
 	
 	docker exec masterslavessh_jenkinsci-master_1 cat /var/jenkins_home/secrets/initialAdminPassword

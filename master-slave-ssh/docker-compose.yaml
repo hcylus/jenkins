@@ -22,3 +22,12 @@ services:
    - jenkinsci-master
   links:
    - jenkinsci-master
+
+ jenkins-docker:
+  image: alpine/socat
+  ports:
+   - 2375:2375
+  volumes:
+   -  /var/run/docker.sock:/var/run/docker.sock
+  command: TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock
+
