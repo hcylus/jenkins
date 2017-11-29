@@ -1,7 +1,6 @@
 FROM jenkinsci/jenkins
+RUN rm -rf /tmp/.ssh && mkdir -p /tmp/.ssh && chmod 700 /tmp/.ssh && ssh-keygen -q -t rsa -N '' -f /tmp/.ssh/id_rsa
 USER root
 ADD localtime /etc/localtime
 RUN echo Asia/Shanghai > /etc/timezone
-USER jenkins
-RUN rm -rf /tmp/.ssh && mkdir -p /tmp/.ssh && chmod 700 /tmp/.ssh
-RUN ssh-keygen -q -t rsa -N '' -f /tmp/.ssh/id_rsa
+RUN curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh --mirror Aliyun
